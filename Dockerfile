@@ -22,3 +22,5 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 COPY main.py ./
 COPY helper.py ./
 COPY config.json ./
+
+ENTRYPOINT [".venv/bin/python", "main.py"]
