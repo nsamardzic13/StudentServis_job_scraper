@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "studentservis-scrapper"
+version = "0.1.0"
+description = ""
+authors = ["nsamardzic13 <nikola.samardzic1997@gmail.com>"]
+readme = "README.md"
+packages = [{include = "studentservis_scrapper"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9, <4"
+bs4 = "^0.0.2"
+html5lib = "^1.1"
+requests = "^2.32.3"
+pandas = "^2.2.3"
+redmail = "^0.6.0"
+boto3 = "^1.35.34"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
