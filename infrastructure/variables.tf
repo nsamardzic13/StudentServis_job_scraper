@@ -11,5 +11,5 @@ variable "sns_email_address" {
 
 variable "image_name" {
   type    = string
-  default = "docker.io/nidjo13/ss-job:latest"
+  default = "docker.io/nidjo13/ss-jobs:latest"
 }
