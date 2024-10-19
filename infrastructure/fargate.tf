@@ -33,8 +33,8 @@ resource "aws_ecs_task_definition" "ecs_task" {
 
 resource "aws_cloudwatch_event_rule" "ecs_schedule_rule" {
   name                = "${var.project_name}-ecs-daily-schedule"
-  description         = "Run ECS task daily at 13"
-  schedule_expression = "cron(0 13 * * ? *)"
+  description         = "Run ECS task Monday to Friday at 13:00"
+  schedule_expression = "cron(0 13 ? * MON-FRI *)"
 }
 
 resource "aws_cloudwatch_event_target" "ecs_task_target" {

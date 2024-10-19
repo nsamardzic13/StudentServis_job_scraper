@@ -73,6 +73,8 @@ for a in control_panel_soup.find_all("a", class_="jobtitle"):
     data.append(job_dict)
 
 df = pd.DataFrame(data)
+if df.empty:
+    raise ValueError("DataFrame is empty, cannot proceed with processing.")
 df.drop(columns=COLS_TO_EXCLUDE, inplace=True)
 
 html = df.to_html(render_links=True, escape=False)
