@@ -48,7 +48,7 @@ class Email(AWS):
                 subject=self._subject,
                 sender="budgetTracket@gmail.com",
                 receivers=self.email_to,
-                html=html
+                html=html,
             )
             print(f"Email sent successfully to {self.email_to}")
         except Exception as e:
