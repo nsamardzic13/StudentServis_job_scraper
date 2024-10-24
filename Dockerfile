@@ -1,4 +1,4 @@
-FROM python:3.11-bullseye as builder
+FROM python:3.11-bullseye AS builder
 
 RUN apt update && \
     apt upgrade  -y
@@ -13,7 +13,7 @@ ENV POETRY_NO_INTERACTION=1 \
 COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
-FROM python:3.11-bullseye as runner
+FROM python:3.11-bullseye AS runner
 
 ENV VIRTUAL_ENV=.venv 
 
