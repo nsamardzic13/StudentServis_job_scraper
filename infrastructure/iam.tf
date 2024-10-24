@@ -9,9 +9,9 @@ resource "google_project_iam_member" "cloud_run_admin" {
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
-resource "google_project_iam_member" "cloud_scheduler_service_agent" {
+resource "google_project_iam_member" "cloud_scheduler_admin" {
   project = var.gcp_project
-  role    = "roles/cloudscheduler.serviceAgent"
+  role    = "roles/cloudscheduler.admin"
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
