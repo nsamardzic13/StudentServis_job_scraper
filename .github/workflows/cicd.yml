@@ -71,7 +71,7 @@ jobs:
             --region ${{ env.AWS_REGION }} \
             --secret-id google_service_account \
             --query SecretString \
-            --output text > ./infrastructure/GCP/service_account.json
+            --output text > ./infrastructure/service_account.json
 
       - name: Terraform fmt
         id: fmt
