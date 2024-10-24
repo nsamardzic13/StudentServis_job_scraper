@@ -15,6 +15,12 @@ resource "google_project_iam_member" "cloud_scheduler_admin" {
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
+resource "google_project_iam_member" "cloud_run_invoker" {
+  project = var.gcp_project
+  role    = "roles/run.invoker"
+  member  = "serviceAccount:${google_service_account.service_account.email}"
+}
+
 resource "google_project_iam_member" "cloud_run_service_account_user" {
   project = var.gcp_project
   role    = "roles/iam.serviceAccountUser"
