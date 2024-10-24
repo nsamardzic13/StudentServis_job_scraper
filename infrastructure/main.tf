@@ -1,18 +1,14 @@
 terraform {
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
+    google = {
+      source  = "hashicorp/google"
+      version = "4.51.0"
     }
   }
 }
 
-provider "aws" {
-  region = "eu-central-1"
-  default_tags {
-    tags = {
-      source  = "terraform-github"
-      project = var.project_name
-    }
-  }
+provider "google" {
+  credentials = local.credentials_file
+  project     = var.gcp_project
+  region      = var.region
 }
