@@ -18,14 +18,14 @@ resource "google_cloud_run_v2_job" "cloud_run" {
 }
 
 resource "google_cloud_scheduler_job" "cloud_run_scheduler" {
-  name     = "${var.project_name}-scheduler"
-  project  = var.gcp_project
-  schedule = "06 11 * * 1-5" # 3 PM UTC every weekday (Monday to Friday)
+  name      = "${var.project_name}-scheduler"
+  project   = var.gcp_project
+  schedule  = "20 11 * * 1-5" # 3 PM UTC every weekday (Monday to Friday)
   time_zone = "Europe/Belgrade"
 
   http_target {
     http_method = "POST"
-    uri         = "https://${var.region}-run.googleapis.com/v2/projects/${var.gcp_project}/locations/${var.region}/jobs/${google_cloud_run_v2_job.cloud_run.name}:run"
+    uri         = "https://${var.region}-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/${var.gcp_project}/jobs/${google_cloud_run_v2_job.cloud_run.name}:run"
     oidc_token {
       service_account_email = google_service_account.service_account.email
     }

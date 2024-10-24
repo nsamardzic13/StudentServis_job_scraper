@@ -1,6 +1,6 @@
 resource "google_service_account" "service_account" {
-  account_id   = var.gcp_project
-  display_name = "${var.project_name}-service-account"
+  account_id   = "${var.gcp_project}-sa"
+  display_name = "${var.project_name}-sa"
 }
 
 resource "google_project_iam_member" "cloud_run_admin" {
