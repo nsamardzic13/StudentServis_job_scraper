@@ -20,7 +20,7 @@ resource "google_cloud_run_v2_job" "cloud_run" {
 resource "google_cloud_scheduler_job" "cloud_run_scheduler" {
   name     = "${var.project_name}-scheduler"
   project  = var.gcp_project
-  schedule = "40 8 * * 1-5" # 3 PM UTC every weekday (Monday to Friday)
+  schedule = "45 8 * * 1-5" # 3 PM UTC every weekday (Monday to Friday)
 
   http_target {
     http_method = "POST"

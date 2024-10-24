@@ -49,7 +49,6 @@ jobs:
             AWS_REGION=${{ env.AWS_REGION }}
           
   deploy:
-    needs: push_to_registry
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
