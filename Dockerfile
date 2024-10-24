@@ -1,4 +1,4 @@
-FROM python:3.11-bullseye as builder
+FROM python:3.11-bullseye AS builder
 
 RUN apt update && \
     apt upgrade  -y
@@ -13,7 +13,7 @@ ENV POETRY_NO_INTERACTION=1 \
 COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
-FROM python:3.11-bullseye as runner
+FROM python:3.11-bullseye AS runner
 
 ENV VIRTUAL_ENV=.venv 
 
@@ -22,5 +22,13 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 COPY main.py ./
 COPY helper.py ./
 COPY config.json ./
+
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_REGION
+
+ENV AWS_ACCESS_KEY_ID=AWS_ACCESS_KEY_ID
+ENV AWS_SECRET_ACCESS_KEY=AWS_SECRET_ACCESS_KEY
+ENV AWS_REGION=AWS_REGION
 
 ENTRYPOINT [".venv/bin/python", "main.py"]

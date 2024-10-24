@@ -1,12 +1,23 @@
+variable "region" {
+  type    = string
+  default = "europe-west3"
+}
+
+variable "gcp_project" {
+  type    = string
+  default = "level-racer-394516"
+}
+
 variable "project_name" {
   description = "Default project_name"
   type        = string
   default     = "tf-ss-jobs"
 }
 
-variable "sns_email_address" {
-  type    = string
-  default = "nikola.samardzic1997+AWS@gmail.com"
+variable "credentials" {
+  description = "Path to service account file"
+  type        = string
+  default     = "./service_account.json"
 }
 
 variable "image_name" {
