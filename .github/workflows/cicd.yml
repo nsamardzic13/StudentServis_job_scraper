@@ -41,12 +41,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Generate service_account.json
-        run: |
-          echo "${BASE64}" | base64 --decode | jq > service_account.json
-        env:
-          BASE64: ${{ secrets.BASE64 }}
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -63,6 +57,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Generate service_account.json
+        run: |
+          echo "${BASE64}" | base64 --decode | jq > service_account.json
+        env:
+          BASE64: ${{ secrets.BASE64 }}
 
       - name: Set up terraform
         uses: hashicorp/setup-terraform@v3
