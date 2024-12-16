@@ -60,7 +60,7 @@ jobs:
 
       - name: Generate service_account.json
         run: |
-          echo "${BASE64}" | base64 --decode | jq > service_account.json
+          echo "${BASE64}" | base64 --decode | jq > ./infrastructure/service_account.json
         env:
           BASE64: ${{ secrets.BASE64 }}
 
