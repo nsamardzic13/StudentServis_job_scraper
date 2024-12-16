@@ -41,6 +41,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Generate service_account.json
+        run: |
+          echo "${BASE64}" | base64 --decode | jq > service_account.json
+        env:
+          BASE64: ${{ secrets.BASE64 }}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -49,7 +55,6 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_USERNAME }}/ss-jobs:latest
           build-args: |
-            BASE64=${{ env.BASE64 }}
             SMTP_USER=${{ env.SMTP_USER }}
             SMTP_PASSWORD=${{ env.SMTP_PASSWORD }}
           

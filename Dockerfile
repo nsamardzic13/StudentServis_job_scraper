@@ -29,7 +29,4 @@ ARG SMTP_PASSWORD
 ENV SMTP_USER=${SMTP_USER}
 ENV SMTP_PASSWORD=${SMTP_PASSWORD}
 
-ARG BASE64
-RUN echo ${BASE64} | base64 --decode | jq > service_account.json
-
 ENTRYPOINT [".venv/bin/python", "main.py"]
