@@ -31,3 +31,4 @@ resource "google_cloud_scheduler_job" "cloud_run_scheduler" {
     }
   }
 }
+
