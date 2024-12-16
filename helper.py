@@ -1,9 +1,8 @@
-import boto3
 import os
 import json
+import logging
 from datetime import datetime
 from redmail import EmailSender
-from botocore.exceptions import ClientError
 
 with open("config.json", "r") as f:
     config = json.load(f)
@@ -34,7 +33,7 @@ class Email:
                 receivers=self.email_to,
                 html=html,
             )
-            print(f"Email sent successfully to {self.email_to}")
+            logging.info(f"Email sent successfully to {self.email_to}")
         except Exception as e:
-            print(f"Email sending to {self.email_to} failed: {e}")
-            raise
+            logging.error(f"Email sending to {self.email_to} failed: {e}")
+            raise e
