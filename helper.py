@@ -16,8 +16,8 @@ class Email:
     def __init__(self, email_to: str) -> None:
         self.email_to = email_to
         self._email = EmailSender(
-            host="smtp.gmail.com",
-            port=465,
+            host=config["smtp_host"],
+            port=config["smtp_port"],
             username=smtp_user,
             password=smtp_password,
         )

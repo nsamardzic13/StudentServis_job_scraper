@@ -3,6 +3,6 @@
         "marija.lesic@hotmail.com",
         "nikola.samardzic1997+AWS@gmail.com"
     ],
-    "smtpServerSecret": "gmail_smtp_server",
-    "regionName": "eu-central-1"
+    "smtp_host": "smtp.gmail.com",
+    "smtp_port": 465
 }
