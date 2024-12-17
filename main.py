@@ -80,6 +80,5 @@ df.drop(columns=COLS_TO_EXCLUDE, inplace=True)
 
 html = df.to_html(render_links=True, escape=False)
 
-for email in config["targetEmails"]:
-    email = Email(email_to=email)
-    email.send_email(html=html)
+email = Email(email_to=config["targetEmails"])
+email.send_email(html=html)
