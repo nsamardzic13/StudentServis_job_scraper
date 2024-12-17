@@ -4,5 +4,5 @@
         "nikola.samardzic1997+AWS@gmail.com"
     ],
     "smtp_host": "smtp.gmail.com",
-    "smtp_port": 465
+    "smtp_port": 587
 }
