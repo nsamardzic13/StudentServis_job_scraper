@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-from helper import Email, config
+from helper import JobReportEmail, config
 
 
 def convert_date_format(data_value):
@@ -80,5 +80,5 @@ df.drop(columns=COLS_TO_EXCLUDE, inplace=True)
 
 html = df.to_html(render_links=True, escape=False)
 
-email = Email(email_to=config["targetEmails"])
+email = JobReportEmail(email_to=config["targetEmails"])
 email.send_email(html=html)

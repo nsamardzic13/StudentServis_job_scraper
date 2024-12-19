@@ -7,8 +7,8 @@ from redmail import EmailSender
 with open("config.json", "r") as f:
     config = json.load(f)
 
-class Email:
-    def __init__(self, email_to: str) -> None:
+class JobReportEmail:
+    def __init__(self, email_to: list[str]) -> None:
         self.email_to = email_to
         self._email = EmailSender(
             host=config["smtp_host"],
@@ -17,8 +17,8 @@ class Email:
             password=os.environ["SMTP_PASSWORD"],
         )
 
-        tdy = datetime.now().strftime("%Y-%m-%d")
-        self._subject = f"Job Report for {tdy}"
+        today = datetime.now().strftime("%Y-%m-%d")
+        self._subject = f"Job Report for {today}"
 
     def send_email(self, html: str) -> None:
         try:
