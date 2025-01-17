@@ -24,7 +24,7 @@ class JobReportEmail:
         try:
             self._email.send(
                 subject=self._subject,
-                sender="studentServisJobs@gmail.com",
+                sender="studentServisJobs@hotmail.com",
                 receivers=self.email_to,
                 html=html,
             )
