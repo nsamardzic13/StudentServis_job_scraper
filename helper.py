@@ -1,7 +1,8 @@
-import os
 import json
 import logging
+import os
 from datetime import datetime
+
 from redmail import EmailSender
 
 with open("config.json", "r") as f:

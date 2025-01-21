@@ -1,7 +1,9 @@
-import requests
-import pandas as pd
-from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
 from helper import JobReportEmail, config
 
 
