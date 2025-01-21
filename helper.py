@@ -9,6 +9,9 @@ with open("config.json", "r") as f:
     config = json.load(f)
 
 
+logging.info("User: " + os.environ["SMTP_USER"])
+logging.info("Password: " + os.environ["SMTP_PASSWORD"])
+
 class JobReportEmail:
     def __init__(self, email_to: list[str]) -> None:
         self.email_to = email_to
