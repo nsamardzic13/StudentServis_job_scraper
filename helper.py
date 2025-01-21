@@ -3,14 +3,15 @@ import logging
 import os
 from datetime import datetime
 
+import google.cloud.logging
 from redmail import EmailSender
+
+client = google.cloud.logging.Client()
+client.setup_logging()
 
 with open("config.json", "r") as f:
     config = json.load(f)
 
-
-logging.info("User: " + os.environ["SMTP_USER"])
-logging.info("Password: " + os.environ["SMTP_PASSWORD"])
 
 class JobReportEmail:
     def __init__(self, email_to: list[str]) -> None:

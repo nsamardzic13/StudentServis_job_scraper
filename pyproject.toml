@@ -14,6 +14,7 @@ requests = "^2.32.3"
 pandas = "^2.2.3"
 redmail = "^0.6.0"
 boto3 = "^1.35.34"
+google-cloud-logging = "^3.11.3"
 
 
 [build-system]
