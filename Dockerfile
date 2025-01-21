@@ -15,7 +15,8 @@ RUN poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
 FROM python:3.11-bullseye AS runner
 
-ENV VIRTUAL_ENV=.venv 
+ENV VIRTUAL_ENV=.venv
+ENV PYTHONUNBUFFERED=True
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
